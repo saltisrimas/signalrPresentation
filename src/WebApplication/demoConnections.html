@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>chat</title>
+        <link href="/modern.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="page secondary">
+
+            <div class="page-header">
+                <div class="page-header-content">
+                    <h1>Chat<small>application, persistent connections</small></h1>
+                </div>
+            </div>
+            <div class="page-region">
+                <div class="page-region-content">                   
+                    <div class="grid">
+                        <div class="row">
+                            <div class="span4 ">
+                                <h2>Compose</h2>
+                                <div class="input-control text">
+                                    <input id="text" type="text" />                                    
+                                </div>
+
+                                <input id="btn" type="submit" value="send" />
+                            </div>
+
+                            <div class="span4">
+                                <h2>Messages</h2>
+                                <ul id="messages">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        
+        <script src="Scripts/jquery-1.6.4.js"></script>
+        <script src="Scripts/jquery.signalR-0.5.3.js"></script>
+        
+
+        <script type="text/javascript">
+
+
+            $(function () {
+
+                var chat = $.connection("/chat");
+                chat.start();
+
+                chat.received ( function (data) {
+                    
+                    $('#messages').append( '<li>'+data+'</li>' );
+                });
+
+                
+
+                $('#btn').click(function () {
+                    
+                    chat.send($('#text').val());
+
+                });
+
+               
+
+            });
+
+        </script>
+
+        
+    </body>
+
+
+
+</html>

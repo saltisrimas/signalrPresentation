@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>SignalR.Redis</id>
+    <version>0.2.0.0</version>
+    <title>SignalR.Redis</title>
+    <authors>David Fowler,  Damian Edwards</authors>
+    <owners>David Fowler,  Damian Edwards</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Redis message bus implementation for SignalR</description>
+    <copyright>Copyright © David Fowler and Damian Edwards 2012</copyright>
+    <dependencies>
+      <dependency id="BookSleeve" version="1.1.0.7" />
+      <dependency id="protobuf-net" version="2.0.0.480" />
+      <dependency id="SignalR.Server" version="0.5.0" />
+    </dependencies>
+  </metadata>
+</package>
